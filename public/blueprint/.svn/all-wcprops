@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/257/parrot/public/stylesheets/blueprint
+END
+print.css
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/257/parrot/public/stylesheets/blueprint/print.css
+END
+ie.css
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/257/parrot/public/stylesheets/blueprint/ie.css
+END
+screen.css
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/257/parrot/public/stylesheets/blueprint/screen.css
+END
