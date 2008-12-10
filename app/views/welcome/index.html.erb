@@ -1,19 +1,80 @@
-
+<% content_for :title do %>Chris Chandler / Squanderingtime<% end %>
 <div id="about">
-	<h2>Self-Aggrandizing</h2>
-	<div id="about-professional">I'm a professional developer residing in Tempe, AZ doing the "work" thing. Before I was a professional developer, in my quasi-grad-school, days I was doing research on cross-layer wireless network routing algorithms with the Networks and Optimizations lab at Arizona State University. At the time I co-authored several papers in various conferences, journals, and the IEEE Transactions on Vehicular Technology. My development experience includes several widely-integrated, PCI-compliant e-commerce platforms, a handful of data protection/encryption suites, and a significant amount of work for one of the world's largest public-facing Certificate Authorities. At any given time I'm trying to find an hour here and there to work on one of my personal projects.</div>
+	<div id="about-professional" class="major-section">
+	  <h2>Self-Aggrandizing Part</h2>
+	  I'm a professional developer residing in Tempe, AZ doing the "work" thing with <%= link_to 'Integrum', "http://www.integrumtech.com" %> as a Rails/Merb developer by day. Before I was a professional developer, in my quasi-grad-school days, I was doing research on cross-layer wireless network routing algorithms with the Networks and Optimizations lab at Arizona State University. At the time I co-authored several papers in various conferences, journals, and the IEEE Transactions on Vehicular Technology. My development experience includes several widely-integrated and PCI-compliant e-commerce platforms, a handful of data protection/encryption suites, and a significant amount of work for one of the world's largest public-facing Certificate Authorities in addition to several other projects. In terms of size, my projects have varied from the small and simple to the multi-million concurrent session type.  At any given time I'm trying to find an hour here and there to work on one of my personal projects.</div>
 	
-	<div id="about-personal">In my not-so-professional life I'm always trying to find time to balance my hobbies.  I've been an avid martial artist for my entire adult life and you'll frequently find me helping out at the studio. I try to be an advocate for gay, lesbian, and transgender causes as frequently as I can.  When I'm out and about in the world I sometimes like to pretend I'm an amateur photographer.
+	<div id="about-projects" class="major-section">
+	  <h2>Current Projects</h2>
+	  <ul class="spaced-list">
+	    <li>
+	      Maintaining and operating <%= link_to "Parrot Labs", "http://www.parrotlabs.com"%> and its flagship product <%= link_to "ParrotPKI", "http://www.parrotlabs.com/products" %>
+	    </li>
+	    <li>
+	      Podcasting with <%= link_to 'Curtis Miller', "http://millarian.com/" %> at <%= link_to 'Personality Flatline', "http://www.personalityflatline.com" %>
+	    </li>
+	    <li>
+	      <%= link_to 'Tweach', "http://www.tweach.com" %> finding your reach via twitter
+	    </li>
+	    <li>
+	      Technically blogging as Chris Chandler at <%= link_to 'Integrumbles', "http://www.integrumbles.com" %>
+	    </li>
+	  </ul>
+	</div>
+	  
+	  
+	<div id="about-publications" class="major-section">
+	  <h2>Publications</h2>
+	    <ul class="spaced-list">
+	      <li>
+	        [Upcoming] Ruby (and Rails) as a scalable, real-time messaging platform with XMPP<br/>
+	        <span class="publication"><%= link_to 'MountainWest RubyConf 2009', "http://mtnwestrubyconf.org/"%></span>
+	      </li>
+	      
+	      <li>      
+	        J. Tang, G. Xue, C. Chandler and W. Zhang,<br/>
+          Link scheduling with power control for throughput enhancement in multihop wireless networks,<br/>
+          <span class="publication">IEEE Transactions on Vehicular Technology (TVT)</span>, Vol. 5, No. 3, 2006, pp. 733-742. (<%= link_to 'PDF', "http://www.cs.montana.edu/tang/Pub/Tang-TVT06.pdf"%>)<br/>
+        </li>
+    
+        <li>
+          J. Tang, G. Xue and C. Chandler,<br/>
+          Interference-aware routing and bandwidth allocation for QoS provisioning in multihop wireless networks,<br/>
+          <span class="publication">Journal of Wireless Communications and Mobile Computing (WCMC)</span>,<br/>
+          Special Issue on Modelling and Performance Evaluation of Radio Resource QoS for<br/>
+          Next Generation Wireless and Mobile Networks, Vol. 5, No. 8, 2005, pp. 933-944. (<%= link_to 'PDF', "http://www.cs.montana.edu/tang/Pub/Tang-WCMC05.pdf"%>)<br/>
+        </li>
+          
+        <li>
+          J. Tang, G. Xue, C. Chandler and W. Zhang,<br/>
+          Interference-aware routing in multihop wireless networks using directional antennas,<br/>
+          <span class="publication">IEEE Infocom'2005</span> (Acceptance Ratio:17%), pp. 751-760. (<%= link_to 'PDF', "http://www.cs.montana.edu/tang/Pub/Tang-INFOCOM05-1.pdf" %>)<br/>
+        </li>
+          
+        <li>
+          J. Tang, G. Xue, C. Chandler and W. Zhang,<br/>
+          Link scheduling with power control for throughput enhancement in multihop wireless networks,<br/>
+          <span class="publication">QShine'2005</span>. (<%= link_to 'PDF', "http://www.cs.montana.edu/tang/Pub/Tang-QShine05.pdf"%> )<br/>
+        </li>
+	</div>
+	
+	<div id="about-personal" class="major-section">
+	  <h2>Not-so-professional life</h2>
+	  In my not-so-professional life I'm always trying to find time to balance my hobbies.  I've been an avid martial artist for my entire adult life and you'll frequently find me helping out at the studio. I try to be an advocate for gay, lesbian, and transgender causes as frequently as I can.  When I'm out and about in the world I sometimes like to pretend I'm an amateur photographer.
 	</div>
 </div>
 
-<div id="links">
-	<h2>Links</h2>
-	<ul>
-		<li><%= link_to 'Flickr', "http://www.flickr.com/photos/squanderingtime/" %></li>
-		<li><%= link_to 'Facebook', "http://www.facebook.com/home.php?#/profile.php?id=10014904" %></li>
-		<li><%= link_to 'Twitter', "http://twitter.com/squanderingtime" %></li>
-		<li><%= link_to 'LinkedIn', "http://www.linkedin.com/in/cchandler480" %></li>
-		<li><%= link_to 'Blog', "http://liquidnonsense.blogspot.com" %></li>
+<div id="links" class="major-section">
+	<h2>Socially</h2>
+	<ul class="spaced-list">
+	  <li><%= image_tag('http://github.com/favicon.ico')%> <%= link_to 'Github', "http://github.com/cchandler" %></li>  
+		<li><%= image_tag('http://flickr.com/favicon.ico') %> <%= link_to "Flickr", "http://www.flickr.com/photos/squanderingtime/" %></li>
+		<li><%= image_tag('http://www.bloglines.com/favicon.ico') %> <%= link_to "Bloglines", "http://www.bloglines.com/public/squanderingtime" %>
+		<li><%= image_tag('http://facebook.com/favicon.ico') %> <%= link_to 'Facebook', "http://www.facebook.com/home.php?#/profile.php?id=10014904" %></li>
+		<li><%= image_tag('http://twitter.com/favicon.ico') %> <%= link_to 'Twitter', "http://twitter.com/squanderingtime" %></li>
+		<li><%= image_tag('http://www.linkedin.com/favicon.ico') %> <%= link_to 'LinkedIn', "http://www.linkedin.com/in/cchandler480" %></li>
+		<li><%= image_tag('http://blogger.com/favicon.ico') %> <%= link_to 'Blog', "http://liquidnonsense.blogspot.com" %></li>
+		<li><%= image_tag('http://delicious.com/favicon.ico') %> <%= link_to 'del.icio.us', "http://delicious.com/squanderingtime" %></li>
+		<li><%= image_tag('http://vimeo.com/favicon.ico')%> <%= link_to 'Vimeo', "http://vimeo.com/user990832" %></li>
 	</ul>
 </div>

@@ -1,5 +1,8 @@
 div#about {margin-top: 3em;}
-div#about-professional {margin-left: 2em; padding: 1em;}
-div#about-personal {margin-left: 2em; padding: 1em;}
+.major-section {margin-left: 2em; padding: 1em;}
+.publication {font-weight: bold;}
+
+.spaced-list {list-style: none;}
+.spaced-list li {padding: .6em;}
 
 div#links {margin-top: 3em;}
