@@ -1,56 +1,44 @@
 set :application, "chrischandler"
-set :domain, "chrischandler.name"
-set :deploy_to, "/home/deploy/apps/chrischandler"
-set :repository, 'git://github.com/cchandler/chrischandler.git'
+set :repository, "git@github.com:cchandler/chrischandler.git"
 
-namespace :vlad do
-  ##
-  # Merb app server
+set :use_sudo, false
 
-  set :merb_address,       "127.0.0.1"
-  set :merb_clean,         false
-  set :merb_command,       'merb -I new_chrischandler.rb'
-  set :merb_conf,          nil
-  set :merb_extra_config,  nil
-  set :merb_environment,   "production"
-  set :merb_group,         nil
-  set :merb_port,          9000
-  set :merb_prefix,        nil
-  set :merb_servers,       1
-  set :merb_user,          nil
+set :scm, "git"
+# set :scm_passphrase, "9hOTtkzTRnLJLTPQyC3zxEvyT"
+set :branch, "master"
+set :user, "deploy"
+set :password, "9hOTtkzTRnLJLTPQyC3zxEvyT"
 
-  desc "Prepares application servers for deployment. merb
-configuration is set via the merb_* variables.".cleanup
+set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_via, :remote_cache
 
-  remote_task :setup_app, :roles => :app do
-    "rake"
-  end
+default_run_options[:pty] = true
+#password 9hOTtkzTRnLJLTPQyC3zxEvyT
 
-  def merb(cmd) # :nodoc:
-    "cd #{current_path} && #{merb_command} -p #{merb_port} -c #{merb_servers} -e #{merb_environment} #{cmd}"
-  end
+role :app, "chrischandler.name"
+role :web, "chrischandler.name"
+role :db,  "chrischandler.name", :primary => true
 
-  desc "Restart the app servers"
+after "deploy:setup"
+after "deploy:update_code"
+after "deploy", "deploy:cleanup"
 
-  remote_task :start_app, :roles => :app do
-    run merb('')
-  end
-
-  remote_task :start_app => :stop_app
-
-  desc "Stop the app servers"
-
-  remote_task :stop_app, :roles => :app do
-    run merb("-K all")
-  end
-
-  remote_task :migrate_merb, :roles => :db do
-    run "cd #{current_release}; rake db:migrate MERB_ENV=#{merb_environment}"
-  end
-
-  task :update do
-    run "cp #{shared_path}/database.yml #{current_path}/config/database.yml"
-  end
+deploy.task :more_setup, :roles => :app, :except => {:no_release => true, :no_symlink => true} do
+  # run "mkdir -p #{shared_path}/config #{shared_path}/public/images/avatars"
+  # run "mongrel_rails cluster::configure -e production -a 127.0.0.1 --user deploy --group deploy -l #{shared_path}/log/mongrel.log -P #{shared_path}/log/mongrel.pid -p 9000 -c #{deploy_to}/current -C #{shared_path}/config/mongrel_cluster.yml"
 end
 
-task :deploy => ["vlad:start_app"]
+deploy.task :symlink_config, :roles => :app, :except => {:no_release => true, :no_symlink => true} do
+  # run "ln -nsf #{shared_path}/config/database.yml #{current_release}/config"
+  # run "ln -nsf #{shared_path}/config/mongrel_cluster.yml #{current_release}/config"
+  # run "cd #{current_release} && RAILS_ENV=production rake db:migrate"
+end
+
+deploy.task :start do
+  # run "mongrel_rails cluster::start -C #{shared_path}/config/mongrel_cluster.yml"
+  run "cd #{current_release} && merb -I new_chrischandler.rb -e production "
+end
+
+deploy.task :stop do
+  # run "mongrel_rails cluster::stop -C #{shared_path}/config/mongrel_cluster.yml"
+end
