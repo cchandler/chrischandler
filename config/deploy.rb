@@ -7,13 +7,11 @@ set :scm, "git"
 # set :scm_passphrase, "9hOTtkzTRnLJLTPQyC3zxEvyT"
 set :branch, "master"
 set :user, "deploy"
-set :password, "9hOTtkzTRnLJLTPQyC3zxEvyT"
 
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 
 default_run_options[:pty] = true
-#password 9hOTtkzTRnLJLTPQyC3zxEvyT
 
 role :app, "chrischandler.name"
 role :web, "chrischandler.name"
