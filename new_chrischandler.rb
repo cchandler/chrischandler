@@ -43,7 +43,7 @@ Merb::Config.use { |c|
   # c[:log_file]          = Merb.root / "log" / "merb.log"
 
 	c[:reload_classes]   = false
-	c[:reload_templates] = false
+	c[:reload_templates] = true
 }
 
 require 'merb-helpers'
@@ -51,10 +51,16 @@ require 'merb-assets'
 
 Merb::Router.prepare do
   match('/').to(:controller => 'welcome', :action =>'index')
+  match('/js_test').to(:controller => "welcome", :action => 'js_test')
 end
 
 class Welcome < Merb::Controller
   def index
     render
   end
+  
+  def js_test
+    render
+  end
+  
 end
